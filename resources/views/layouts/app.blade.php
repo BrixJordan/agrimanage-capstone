@@ -81,7 +81,8 @@
             <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="{{ route('admin.announcement') }}"><i class="fas fa-newspaper"></i> News and Update</a></li>
             <li><a href="{{ route('admin.stock') }}"><i class="fas fa-chart-line"></i> Inventory Stocks</a></li>
-            <li><a href="{{ route('admin.user') }}"><i class="fas fa-users"></i> Users/Farmers</a></li>
+            <li><a href="{{ route('admin.farmer') }}"><i class="fas fa-users"></i> Farmer</a></li>
+            <li><a href="{{ route('admin.user') }}"><i class="fas fa-users"></i> Users</a></li>
             <li><a href="{{ route('admin.notification') }}"><i class="fas fa-bell"></i> Notifications</a></li>
             <li><a href="{{ route('admin.profile') }}"><i class="fas fa-user"></i> Profile</a></li>
             <li><a href="{{ route('admin.setting') }}"><i class="fas fa-cog"></i> Settings</a></li>

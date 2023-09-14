@@ -10,6 +10,104 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+         /* Your CSS styles go here */
+         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body {
+          font-family: 'Inter', sans-serif;
+          background-color: #f0f0f0;
+        }
+        .form-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2, h1 {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        @media (max-width: 768px) {
+            table, th, td {
+                display: block;
+            }
+            
+            th, td {
+                width: 100%;
+            }
+        }
+        
+        .formbold-mb-3 {
+            margin-bottom: 15px;
+        }
+        
+        .formbold-input-flex > div {
+            width: 50%;
+        }
+        
+        .formbold-form-input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #dde3ec;
+            background: #ffffff;
+            font-weight: 500;
+            font-size: 16px;
+            color: #536387;
+            outline: none;
+        }
+
+        .formbold-form-textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #dde3ec;
+            background: #ffffff;
+            font-weight: 500;
+            font-size: 16px;
+            color: #536387;
+            outline: none;
+            resize: vertical; /* Allow vertical resizing of the text area */
+        }
+
+        /* Style for buttons */
+        .formbold-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        /* Style for headers */
+        th {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
         
 
         * {
@@ -236,7 +334,7 @@
  
 
 <div class="form-container">
-        <h1>Farmer Enrollment Form</h1>
+        <h1>ANI AT KITA RSBSA ENROLLMENT FORM</h1>
         <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
     @csrf
 
@@ -383,8 +481,8 @@
                 </td>
             </tr>
         </table>
-        <button type="submit">Enroll Farmer</button>
-        <button id="printButton" type="button">Print</button>
+        <button type="submit">Add Farmer</button>
+        
 </form>
     </fieldset>
     
@@ -397,397 +495,220 @@
 
     </div><br>
     <div class="form-container">
-        <center><h2>Registry System for Basic Sector in Agriculture (RSBSA)</h2>
-        <h1>ENROLLMENT CLIENT'S COPY</h1></center><br>
-    <form action="https://formbold.com/s/FORM_ID" method="POST">
-        <div class="formbold-mb-3">
-            <label for="age" class="formbold-form-label"> Reference/Contact No.: </label>
-            <input
-              type="text"
-              class="formbold-form-input"
-            />
+      <h2>Registry System for Basic Sector in Agriculture (RSBSA)</h2>
+      <h1>ENROLLMENT CLIENT'S COPY</h1>
+      <form action="https://formbold.com/s/FORM_ID" method="POST">
+          <div class="formbold-mb-3">
+              <label for="age" class="formbold-form-label"> Reference/Contact No.: </label>
+              <input
+                type="text"
+                class="formbold-form-input"
+                name="contact_no"
+              />
+              
           </div>
-        <div class="formbold-input-flex">
-          <div>
-            <label for="surname" class="formbold-form-label">  Surname </label>
-            <input
-              type="text"
-              name="surname"
-              id="surname"
-              placeholder="Your first name"
-              class="formbold-form-input"
-            />
-          </div>
-
-          <div>
-            <label for="firstname" class="formbold-form-label"> Firstname </label>
-            <input
-              type="text"
-              name="firstname"
-              id="firstname"
-              placeholder="Your last name"
-              class="formbold-form-input"
-            />
-          </div>
-          
-        </div>
-
-       
-        <div class="formbold-input-flex">
-            <div>
-                <label for="middlename" class="formbold-form-label"> Middlename </label>
-                <input
-                  type="text"
-                  name="middlename"
-                  id="middlename"
-                  placeholder="Your last name"
-                  class="formbold-form-input"
-                />
-              </div>
-          
-      
+          <div class="formbold-input-flex">
               <div>
-                <label for="extensionname" class="formbold-form-label"> Extension Name </label>
-                <input
-                  type="text"
-                  name="extensionname"
-                  id="extensionname"
-                  placeholder="Your last name"
-                  class="formbold-form-input"
-                />
+                  <label for="surname" class="formbold-form-label">  Surname </label>
+                  <input
+                    type="text"
+                    name="surname"
+                    id="surname"
+                    placeholder="Your last name"
+                    class="formbold-form-input"
+                  />
               </div>
-           
+              <div>
+                  <label for="firstname" class="formbold-form-label"> Firstname </label>
+                  <input
+                    type="text"
+                    name="firstname"
+                    id="firstname"
+                    placeholder="Your first name"
+                    class="formbold-form-input"
+                  />
+              </div>
+              
+          </div>
+          <div class="formbold-input-flex">
+              <div>
+                  <label for="middlename" class="formbold-form-label">  Middlename </label>
+                  <input
+                    type="text"
+                    name="middlename"
+                    id="middlename"
+                    placeholder="Your middle name"
+                    class="formbold-form-input"
+                  />
+              </div>
+              <div>
+                  <label for="extensionname" class="formbold-form-label"> extensionname </label>
+                  <input
+                    type="text"
+                    name="extensionname"
+                    id="extensionname"
+                    placeholder="Your extension name"
+                    class="formbold-form-input"
+                  />
+              </div>
+          </div>
           
-        </div>
+          <table border="1">
+              <thead>
+                  <tr>
+                      <th colspan="7">
+                          <div class="left-input">
+                              <h5>No. of Farm Parcels:<input class="w3-input" type="text" style="width:40%" name="num_farm_parcels" required> </h5>
+                          </div>
+                          <div class="right-input">
+                              <h5>Agrarian Reform Beneficiary: 
+                                  <input id="yes" type="radio" name="beneficiary_status" value="yes">
+                                  <label for="yes">YES</label>
+                                  <input id="no" type="radio" name="beneficiary_status" value="no">
+                                  <label for="no">NO</label>
+                              </h5>
+                          </div>
+                      </th>
+                  </tr>
+                  <tr>
+                      <th style="font-size: smaller;">Farm<br> Parcel<br> No.</th>
+                      <th style="font-size: smaller;">Farm Land Description</th>
+                      <th style="font-size: smaller;">Crop/Commodity<br>(Rice/corn/Hvc/<br>LiveStock/Poultry/<br>Agri-fishery)<br>For LiveStock/Fishery<br>(specify type<br>of animals)</th>
+                      <th style="font-size: smaller;">Size  (ha)</th>
+                      <th style="font-size: smaller;">NO. OF HEAD (for LiveStock<br>or Poultry)</th>
+                      <th style="font-size: smaller;">Farm Type <br> **</th>
+                      <th style="font-size: smaller;">Organic Practitioner <br> (Y/N)</th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td rowspan="6"><center>1</center></td>
+                      <td rowspan="6">
+                          <p>Location(Baranggay&Municipality):<br><input class="formbold-form-textarea" style="width:90%" name="location_1" required></p><br>
+                          <p>Total Farm Area: <input class="formbold-form-input" type="text" style="width:90%" name="farm_area_1" required>ha</p>
+                          <p style="font-weight: bolder;">*Ownership Document No. <input class="formbold-form-input" type="text" style="width:40%" name="ownership_doc_1" required></p><br>
+                          <p><input type="checkbox" name="registered_owner_1">Registered Owner</p><br>
+                          <p><input type="checkbox" name="tenant_1">Tenant(Name of <br>Land Owner:<input type="text" name="tenant_name_1">)</p><br>
+                          <p><input type="checkbox" name="lessee_1">Lesse(Name of <br>Land Owner:<input type="text" name="lessee_name_1">)</p><br>
+                          <p><input type="checkbox" name="others_1">Others:<input type="text" name="others_text_1"></p><br>
+                      </td>
+                      <!-- Additional input fields for row 1 -->
+                      <td><input class="formbold-form-input" type="text" name="farm_land_description_1"></td>
+                      <td><input class="formbold-form-input" type="text" name="crop_commodity_1"></td>
+                      <td><input class="formbold-form-input" type="text" name="size_1"></td>
+                      <td><input class="formbold-form-input" type="text" name="head_count_1"></td>
+                      <td><input class="formbold-form-input" type="text" name="farm_type_1"></td>
+                      <td><input class="formbold-form-input" type="text" name="organic_practitioner_1"></td>
+                  </tr>
+                  <!-- Repeat this row as needed for more entries -->
+              </tbody>
 
-        <div class="broken-line"></div>
-       
-        
-      
+              <tbody>
+                  <tr>
+                      <td rowspan="6"><center>2</center></td>
+                      <td rowspan="6">
+                          <p>Location(Baranggay&Municipality):<br><input class="formbold-form-textarea" style="width:90%" name="location_2" required></p><br>
+                          <p>Total Farm Area: <input class="formbold-form-input" type="text" style="width:90%" name="farm_area_2" required>ha</p>
+                          <p style="font-weight: bolder;">*Ownership Document No. <input class="formbold-form-input" type="text" style="width:40%" name="ownership_doc_2" required></p><br>
+                          <p><input type="checkbox" name="registered_owner_2">Registered Owner</p><br>
+                          <p><input type="checkbox" name="tenant_2">Tenant(Name of <br>Land Owner:<input type="text" name="tenant_name_2">)</p><br>
+                          <p><input type="checkbox" name="lessee_2">Lesse(Name of <br>Land Owner:<input type="text" name="lessee_name_2">)</p><br>
+                          <p><input type="checkbox" name="others_2">Others:<input type="text" name="others_text_2"></p><br>
+                      </td>
+                      <!-- Additional input fields for row 2 -->
+                      <td><input class="formbold-form-input" type="text" name="farm_land_description_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="crop_commodity_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="size_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="head_count_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="farm_type_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="organic_practitioner_2"></td>
+                  </tr>
+                  <!-- Repeat this row as needed for more entries -->
+              </tbody>
+              <tbody>
+                  <tr>
+                      <td rowspan="6"><center>2</center></td>
+                      <td rowspan="6">
+                          <p>Location(Baranggay&Municipality):<br><input class="formbold-form-textarea" style="width:90%" name="location_2" required></p><br>
+                          <p>Total Farm Area: <input class="formbold-form-input" type="text" style="width:90%" name="farm_area_2" required>ha</p>
+                          <p style="font-weight: bolder;">*Ownership Document No. <input class="formbold-form-input" type="text" style="width:40%" name="ownership_doc_2" required></p><br>
+                          <p><input type="checkbox" name="registered_owner_2">Registered Owner</p><br>
+                          <p><input type="checkbox" name="tenant_2">Tenant(Name of <br>Land Owner:<input type="text" name="tenant_name_2">)</p><br>
+                          <p><input type="checkbox" name="lessee_2">Lesse(Name of <br>Land Owner:<input type="text" name="lessee_name_2">)</p><br>
+                          <p><input type="checkbox" name="others_2">Others:<input type="text" name="others_text_2"></p><br>
+                      </td>
+                      <!-- Additional input fields for row 2 -->
+                      <td><input class="formbold-form-input" type="text" name="farm_land_description_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="crop_commodity_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="size_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="head_count_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="farm_type_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="organic_practitioner_2"></td>
+                  </tr>
+                  <!-- Repeat this row as needed for more entries -->
+              </tbody>
+              <tbody>
+                  <tr>
+                      <td rowspan="6"><center>2</center></td>
+                      <td rowspan="6">
+                          <p>Location(Baranggay&Municipality):<br><input class="formbold-form-textarea" style="width:90%" name="location_2" required></p><br>
+                          <p>Total Farm Area: <input class="formbold-form-input" type="text" style="width:90%" name="farm_area_2" required>ha</p>
+                          <p style="font-weight: bolder;">*Ownership Document No. <input class="formbold-form-input" type="text" style="width:40%" name="ownership_doc_2" required></p><br>
+                          <p><input type="checkbox" name="registered_owner_2">Registered Owner</p><br>
+                          <p><input type="checkbox" name="tenant_2">Tenant(Name of <br>Land Owner:<input type="text" name="tenant_name_2">)</p><br>
+                          <p><input type="checkbox" name="lessee_2">Lesse(Name of <br>Land Owner:<input type="text" name="lessee_name_2">)</p><br>
+                          <p><input type="checkbox" name="others_2">Others:<input type="text" name="others_text_2"></p><br>
+                      </td>
+                      <!-- Additional input fields for row 2 -->
+                      <td><input class="formbold-form-input" type="text" name="farm_land_description_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="crop_commodity_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="size_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="head_count_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="farm_type_2"></td>
+                      <td><input class="formbold-form-input" type="text" name="organic_practitioner_2"></td>
+                  </tr>
+                  <!-- Repeat this row as needed for more entries -->
+              </tbody>
+              <tbody>
+                  <td colspan="7" style="background-color: black;color: white;"><center><h4>DATA PRIVACY POLICY</h4></center></td>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td colspan="7">
+                      <p style="margin-block: 10px;font-size: smaller;">
+                      The collection of personal information is for documentation planning,
+                      reporting and processing purposes in availing agricultural related interventions.
+                      Pocessed data shall only be shared to partner agencies for planning,reporting and other use in aacordance
+                      to the mandate of the agency. This in compliance with the Data Sharing Policy of the Department. <br>
+                      You have the right to ask for a copy of your personal data that we hold about you as well as to ask for it to be corrected if 
+                      you think it is wrong. To do so, please contact "ContactPerson and Contact Details>>"
+                      </p>
+                    </td>
+                  </tr>
+              </tbody>
+              <!-- Add more tbody sections as needed for additional entries -->
 
-  <table border="1">
-    <thead>
-     <tr>
-      
+              <!-- Add other form fields and buttons here -->
 
-    <th colspan="7">
-        <div class="left-input">
-            <h5>No. of Farm Parcels:<input class="w3-input" type="text" style="width:40%" required> </h5>
-        </div>
-        <div class="right-input">
-            <h5>Agrarian Reform Beneficiary: <input id="yes" type="radio" name="gender" value="yes">
-                <label for="yes">YES</label>
-                <input id="no" type="radio" name="gender" value="no">
-                <label for="no">NO</label></h5>
-        </div>
-    </th>
-    <tr>
-        <th style="font-size: smaller;">Farm<br> Parcel<br> No.</th>
-        <th style="font-size: smaller;">Farm Land Description</th>
-        <th style="font-size: smaller;">Crop/Commodity<br>(Rice/corn/Hvc/<br>LiveStock/Poultry/<br>Agri-fishery)<br>For LiveStock/Fishery<br>(specify type<br>of animals)</th>
-        <th style="font-size: smaller;">Size  (ha)</th>
-        <th style="font-size: smaller;">NO. OF HEAD (for LiveStock<br>or Poultry)</th>
-        <th style="font-size: smaller;">Farm Type <br> **</th>
-        <th style="font-size: smaller;">Organic Practitioner <br> (Y/N)</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-       <td rowspan="6"><center>1</center></td>
-       <td rowspan="6"><br>
-        <p>Location(Baranggay&Municipality):<br><input class="w3-input" type="text" style="width:90%" required></p><br>
-        <p>Total Farm Area: <input class="w3-input" type="text" style="width:90%" required>ha</p>
-        <p style="font-weight: bolder;">*Ownership Document No. <input class="w3-input" type="text" style="width:40%" required></p><br>
-        <p><input type="checkbox">Registered Owner</p><br>
-        <p><input type="checkbox">Tenant(Name of <br>Land Owner:</p>
-        <p><input type="text">)</p><br>
-        <p><input type="checkbox">Lesse(Name of <br>Land Owner:</p>
-        <p><input type="text">)</p><br>
-        <p><input type="checkbox">Others:</p>
-        <p><input type="text"></p><br>
+              <tfoot>
+                  <tr>
+                      <td colspan="7">
+                          <p style="margin-block: 10px;font-size: smaller;"> I hereby declare that all information indicated above are true and correct,
+                            and that they may used by Department of Agriculture for the purposes of registration to the Registry System for Basic Sectors in Agriculture (RSBSA) and 
+                            other legitimate interests of the Department pursuant to its mandates.</p>
+                      </td>
+                  </tr>
+                  
+              </tfoot>
+              
+          </table>
 
-    
-    </td>
-    </tr>
-   
-      <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      </tr>
+          <!-- Additional form fields and buttons go here -->
+          <button type="submit" class="formbold-button">Submit</button>
+      </form>
+  </div>
 
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-
-
-      
-      
-    
-
-
-    
-    
-     
-    </tbody>
-    <tbody>
-      <tr>
-        <td rowspan="6"><center>2</center></td>
-       <td rowspan="6"><br>
-        <p>Location(Baranggay&Municipality):<br><input class="w3-input" type="text" style="width:90%" required></p><br>
-        <p>Total Farm Area: <input class="w3-input" type="text" style="width:90%" required>ha</p>
-        <p style="font-weight: bolder;">*Ownership Document No. <input class="w3-input" type="text" style="width:40%" required></p><br>
-        <p><input type="checkbox">Registered Owner</p><br>
-        <p><input type="checkbox">Tenant(Name of <br>Land Owner:</p>
-        <p><input type="text">)</p><br>
-        <p><input type="checkbox">Lesse(Name of <br>Land Owner:</p>
-        <p><input type="text">)</p><br>
-        <p><input type="checkbox">Others:</p>
-        <p><input type="text"></p><br>
-
-    
-    </td>
-       
-
-      </tr>
-      <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              </tr>
-
-    </tbody>
-    <tbody>
-      <tr>
-        <td rowspan="6"><center>3</center></td>
-       <td rowspan="6"><br>
-        <p>Location(Baranggay&Municipality):<br><input class="w3-input" type="text" style="width:90%" required></p><br>
-        <p>Total Farm Area: <input class="w3-input" type="text" style="width:90%" required>ha</p>
-        <p style="font-weight: bolder;">*Ownership Document No. <input class="w3-input" type="text" style="width:40%" required></p><br>
-        <p><input type="checkbox">Registered Owner</p><br>
-        <p><input type="checkbox">Tenant(Name of <br>Land Owner:</p>
-        <p><input type="text">)</p><br>
-        <p><input type="checkbox">Lesse(Name of <br>Land Owner:</p>
-        <p><input type="text">)</p><br>
-        <p><input type="checkbox">Others:</p>
-        <p><input type="text"></p><br>
-
-    
-    </td>
-  
-
-      </tr>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-    </tbody>
-    <tbody>
-      <tr>
-        <td colspan="5"><center><h4>Ownership Document*</h4></center>
-          <div class="left-input">
-          <p>1. Certificate of Land Transfer</p>
-          <p>2.  Emancipation Patent</p>
-          <p>3.  Individual Certificate of <br>Land Ownership Award(CLOA)</p>
-          <p>4.  Coolective CLOA</p>
-          <p>5.  Co-ownership CLOA</p>
-          </div>
-          <div class="right-input">
-            <p>6. Agricultural sales patent</p>
-            <p>7. Homestead patent</p>
-            <p>8. Free Patent</p>
-            <p>9. Certificate of Title or Regular Title</p>
-            <p>10. Certificate of Ancestral Domain Title</p>
-            <p>11. Certificate of Ancestral Land Title</p>
-            <p>12. Tax Declaration</p>
-          </div>
-
-        </td>
-        
-        <td colspan="2"><center><h4>Farm Type**</h4></center>
-          <p>1- Irrigated</p>
-          <p>2-Rainfed Upland</p>
-          <p>3-Rainfed Lowland</p>
-          <td>
-        </tr>
-        <tbody>
-          <tr>
-            <td colspan="7">
-              <p style="margin-block: 10px;font-size: smaller;"> I hereby declare that all information indicated above are true and correct,
-                and that they may used by Department of Agriculture for the purposes of registration to the Registry System for Basic Sectors in Agriculture(RSBSA) and 
-              other legitimate interests of the Department pursuant to its mandates.</p>
-            </td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td> <center><input type="date" name="" id=""></center> </td>
-            <td ><center><input style="width: 90%; height: 50%;" type="text" name="" id=""></center></td>
-            <td colspan="3">**signature lods*</td>
-            <td colspan="3">**thumbmark dito**</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td style="background-color: black;color: white;"> <center>DATE</center> </td>
-            <td style="background-color: black;color: white;"> <center>PRINTED NAME OF APPLICANT</center> </td>
-            <td colspan="3" style="background-color: black;color: white;"> <center>SIGNATURE</center> </td>
-            <td colspan="3" style="background-color: black;color: white;"> <center>THUMBMARK</center> </td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-           <td colspan="7"> <h5>VERIFIED TRUE AND CORRECT BY:</h5></td>
-           
-            
-
-          </tr>
-          <tbody>
-            <td colspan="7" style="background-color: black;color: white;"><center><h4>DATA PRIVACY POLICY</h4></center></td>
-          </tbody>
-          <tbody>
-            <tr>
-              <td colspan="7">
-                <p style="margin-block: 10px;font-size: smaller;">
-                The collection of personal information is for documentation planning,
-                reporting and processing purposes in availing agricultural related interventions.
-                Pocessed data shall only be shared to partner agencies for planning,reporting and other use in aacordance
-                to the mandate of the agency. This in compliance with the Data Sharing Policy of the Department. <br>
-                You have the right to ask for a copy of your personal data that we hold about you as well as to ask for it to be corrected if 
-                you think it is wrong. To do so, please contact "ContactPerson and Contact Details>>"
-                </p>
-              </td>
-            </tr>
-        </tbody>
-    </tbody>
-    <tbody>
-      <tr><td colspan="7"><center><h3>THIS FORM IS NOT FOR SALE</h3></center></td></tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td colspan="7"> <h5>VERIFIED TRUE AND CORRECT BY:</h5></td>
-        
-      
-
-       </tr>
-       
-    </tbody>
-   </table>
-   <script>
-    // Function to print the form when the "Print" button is clicked
-    function printForm() {
-        var printContent = document.getElementById("printableContent"); // Replace with the ID of the element you want to print
-        var originalContents = document.body.innerHTML;
-
-        document.body.innerHTML = printContent.innerHTML;
-        window.print();
-
-        document.body.innerHTML = originalContents;
-    }
-
-    // Add an event listener to the "Print" button
-    var printButton = document.getElementById("printButton");
-    printButton.addEventListener("click", printForm);
-</script>
    
     @endsection
 

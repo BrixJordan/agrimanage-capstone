@@ -20,6 +20,10 @@ public function user()
 {
     return view('admin.user');
 }
+public function farmer(){
+    return view('admin.farmer');
+}
+
 
 public function notification()
 {

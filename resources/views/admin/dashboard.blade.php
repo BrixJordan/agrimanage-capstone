@@ -80,6 +80,7 @@
 
 </div>
         </div>
+        <h1>Data Analytics and reports here</h1>
         <!-- Your dashboard content goes here -->
     @endsection
 </body>

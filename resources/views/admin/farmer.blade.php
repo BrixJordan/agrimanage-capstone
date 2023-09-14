@@ -124,12 +124,35 @@
                 <th>Name</th>
                 <th>Last Name </th>
                 <th>Address</th>
-                <th>Account</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th>Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
-        
+        <tbody>
+            @foreach ($farmers as $farmer)
+            <!-- Example row, you can loop through your data to generate rows -->
+            <tr>
+                <td>{{$farmer->id}}</td>
+                <td>{{$farmer->farmer_firstname}}</td>
+                <td>{{$farmer->farmer_surname}}</td>
+                <td>{{$farmer->address}}</td>
+                <td>{{$farmer->created_at}}</td>
+                <td>
+                    <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                    <form action="{{route('user.destroy', $farmer->id)}}" method="post">
+                        @csrf 
+                        @method('DELETE')
+                        <button type="submit">delete</button>
+
+                    </form>
+                    
+                    <a href="#" class="btn btn-light btn-sm">View</a>
+                    <a href="#" class="btn btn-light btn-sm">print</a>
+                </td>
+            </tr>
+            @endforeach
+            <!-- Add more rows as needed -->
+        </tbody>
     </table>
 </div>
     <!-- Your dashboard content goes here -->

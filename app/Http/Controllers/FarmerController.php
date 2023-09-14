@@ -15,7 +15,7 @@ class FarmerController extends Controller
     public function index()
     {
         $farmers=Farmers::all();
-        return view('admin.user', compact('farmers'));
+        return view('admin.farmer', compact('farmers'));
         //
     }
 
@@ -39,7 +39,7 @@ class FarmerController extends Controller
     public function store(Request $request)
     {
         Farmers::create($request->all());
-        return redirect()->route('admin.user');
+        return redirect()->route('admin.farmer');
         //
     }
 
@@ -86,7 +86,7 @@ class FarmerController extends Controller
     public function destroy(Farmer $farmer)
     {
         $farmer->delete();
-        return redirect()->route('admin.user');
+        return redirect()->route('admin.farmer');
 
         //
     }

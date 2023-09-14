@@ -38,6 +38,8 @@
     </div>
 </div>
 
+<!-- ... Previous HTML code ... -->
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -64,9 +66,9 @@
         <td>{{ $stock->stock_quantity }}</td>
         <td>{{ $stock->stock_date }}</td>
         <td>
-        <button type="button" class="btn btn-primary" data-id="{{route('stock.edit', $stock->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  edit
-</button>
+            <button type="button" class="btn btn-primary" data-id="{{route('stock.edit', $stock->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Edit
+            </button>
             <form action="{{ route('stock.destroy', $stock->id) }}" method="post">
                 @csrf 
                 @method('DELETE')
@@ -74,9 +76,12 @@
             </form>
         </td>
     </tr>
-@endforeach
-</tbody>
+    @endforeach
+    </tbody>
 </table>
+
+<!-- ... Rest of your HTML code ... -->
+
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
