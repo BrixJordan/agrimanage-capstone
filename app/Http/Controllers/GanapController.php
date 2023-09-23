@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Ganap;
 
 use Illuminate\Http\Request;
-use App\Models\Farmers;
 
-class FarmerController extends Controller
+class GanapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class FarmerController extends Controller
      */
     public function index()
     {
-        $farmers=Farmers::all();
-        return view('admin.farmer', compact('farmers'));
+        $ganaps=Ganap::all();
+        return view('admin.event', compact('ganaps'));
         //
     }
 
@@ -26,7 +26,6 @@ class FarmerController extends Controller
      */
     public function create()
     {
-        return view('users.create');
         //
     }
 
@@ -38,8 +37,8 @@ class FarmerController extends Controller
      */
     public function store(Request $request)
     {
-        Farmers::create($request->all());
-        return redirect()->route('admin.farmer');
+        Ganap::create($request->all());
+        return redirect()->route('admin.event');
         //
     }
 
@@ -49,9 +48,8 @@ class FarmerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Farmers $farmer)
+    public function show($id)
     {
-        return view('users.view');
         //
     }
 
@@ -61,9 +59,9 @@ class FarmerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Farmers $farmer)
+    public function edit(Ganap $ganap)
     {
-        return view('users.edit', compact('farmer'));
+        return view('ganap.edit', compact('ganap'));
         //
     }
 
@@ -74,10 +72,10 @@ class FarmerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Farmers $farmer)
+    public function update(Request $request,Ganap $ganap)
     {
-        $farmer->update($request->all());
-        return redirect()->route('admin.farmer');
+        $ganap->update($request->all());
+        return redirect()->route('admin.event');
         //
     }
 
@@ -87,11 +85,21 @@ class FarmerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Farmers $farmer)
+    public function destroy(Ganap $ganap)
     {
-        $farmer->delete();
-        return redirect()->route('admin.farmer');
+        $ganap->delete();
+        return redirect()->route('admin.event');
 
         //
     }
+
+    public function search(Request $request){
+        $searchQuery = $request->input('search');
+
+        $ganaps = Ganap::where('event_name', 'like', '%' . $searchQuery . '%')->get();
+
+        return view('admin.event', ['ganaps' => $ganaps]);
+    }
+
+
 }

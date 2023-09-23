@@ -15,11 +15,19 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-    $table->string('stock_image')->nullable(); // Corrected column name and added nullable()
-    $table->text('stock_description');
-    $table->integer('stock_quantity');
-    $table->date('stock_date');
-    $table->timestamps();
+            $table->string('gate_pass_no');
+            $table->date('date');
+            $table->unsignedInteger('no');
+            $table->string('quantity');
+            $table->string('unit');
+            $table->text('description');
+            $table->string('allocation');
+            $table->string('balance');
+            $table->string('lot_number');
+            $table->string('requesting_officer');
+            $table->string('authorized_by');
+            $table->string('received_by');
+            $table->timestamps();
         });
     }
 

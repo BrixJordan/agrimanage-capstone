@@ -15,14 +15,13 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('title'); 
-            $table->text('body'); 
+            $table->string('title'); // Assuming 'title' is for storing the file path
+            $table->text('body');
             $table->date('event_date');
-            $table->string('event_hour');
-            $table->string('event_minute'); 
-            $table->string('duration_minutes'); 
-            $table->string('location');   
-            $table->string('file_path')->nullable(); 
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('location');
+            $table->string('file_path')->nullable();
             $table->timestamps();
         });
     }

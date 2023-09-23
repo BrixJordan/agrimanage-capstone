@@ -79,6 +79,9 @@
 </div>
 
 </div>
+<div class="container">
+    <h2>Reports</h2>
+</div>
         </div>
         <!-- Your dashboard content goes here -->
     @endsection

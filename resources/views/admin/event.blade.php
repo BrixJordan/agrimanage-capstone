@@ -92,24 +92,18 @@
 @extends('layouts.app')
 
 @section('content')
-
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
    
 
 <div class="container">
-    <h2>Announcement</h2>
+    <h2>Event List</h2>
     <div class="row">
         <div class="col-md-6">
             <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#myModal">
-                Add News/Announcement
+                Add Events
             </button>
         </div>
         <div class="col-md-6">
-            <form action="{{route('events.search')}}" method="GET">
+            <form action="{{route('ganaps.search')}}" method="GET">
                 <div class="input-group mb-3">
                     <input type="text" name="search" class="form-control" placeholder="Search events">
                     <div class="input-group-append">
@@ -125,41 +119,45 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Description</th>
+                <th>Name</th>
                 <th>Date</th>
-                <th>Start Time</th>
-                <th>End time</th>
                 <th>Location</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        @foreach ($events as $event)
+            @foreach($ganaps as $ganap)
+        
             <!-- Example row, you can loop through your data to generate rows -->
             <tr>
-                <td>{{ $event->id }}</td>
-                <td>
-                    @if ($event->title)
-                        <img src="/images/{{ $event->title }}" alt="{{$event->title}}" style="height: 390px;">
-                    @else
+                <td>{{$ganap->id}}</td>
+                <td> @if ($ganap->title)
+                        <img src="data:images/jpeg;base64,{{ base64_encode($ganap->title) }}" alt="Event Image" width="100">
+                    @else   
                         No Image
-                    @endif
-                </td>
-                <td>{{ $event->body }}</td>
-                <td>{{ $event->event_date }}</td>
-                <td>{{ $event->start_time }}</td>
-                <td>{{ $event->end_time }}</td>
-                <td>{{ $event->location }}</td>
+                    @endif</td>
                 <td>
-                    <a href="{{route('announcement.edit', $event->id)}}">Edit</a>
-                    <form action="{{ route('announcement.destroy', $event->id) }}" method="post">
+                   {{$ganap->event_name}}
+                </td>
+                
+                
+                
+                <td>{{$ganap->event_datetime}}</td>
+                <td>{{$ganap->event_location}}</td>
+                <td>{{$ganap->event_description}}</td>
+                <td>
+                    <a href="{{route('ganap.edit', $ganap->id)}}">Edit</a>
+                    <form action="{{route('event.destroy', $ganap->id)}}" method="post">
                         @csrf 
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        <button type="submit">Delete</button>
                     </form>
                 </td>
+                
             </tr>
-        @endforeach
+            @endforeach
+        
         <!-- Add more rows as needed -->
         </tbody>
     </table>
@@ -171,13 +169,13 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Announcement</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('event.store')}}" enctype="multipart/form-data">
                     @csrf <!-- Add the CSRF token -->
 
                     <!-- Title (as an image) -->
@@ -191,42 +189,28 @@
                     </div>
                     <!-- Body -->
                     <div class="form-group">
-                        <label for="editEventBody">Event Description</label>
-                        <textarea class="form-control" id="editEventBody" rows="4" name="body"></textarea>
-                    </div>
+            <label for="event_name">Event Name</label>
+            <input type="text" id="event_name" name="event_name" class="form-control" required>
+        </div>
+      
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="editEventDate">Date</label>
-                                <input type="date" class="form-control" id="editEventDate" name="event_date">
-         </div>
-                        <div class="form-group">
-                            <label for="startTime">Start Time</label>
-        <input type="time" class="form-control" id="startTime" name="start_time">
-    </div>
+        <!-- Event Date and Time -->
+        <div class="form-group">
+            <label for="event_datetime">Event Date and Time</label>
+            <input type="datetime-local" id="event_datetime" name="event_datetime" class="form-control" required>
+        </div>
 
-    <!-- End Time -->
-    <div class="form-group">
-        <label for="endTime">End Time</label>
-        <input type="time" class="form-control" id="endTime" name="end_time">
-    </div>
-    </div>
+        <!-- Event Location -->
+        <div class="form-group">
+            <label for="event_location">Event Location</label>
+            <input type="text" id="event_location" name="event_location" class="form-control" required>
+        </div>
 
-                    <!-- Location -->
-                    <div class="form-group">
-                        <label for="editEventLocation">Location</label>
-                        <input type="text" class="form-control" id="editEventLocation" name="location">
-                    </div>
-
-                    <!-- File Upload -->
-                    <div class="form-group">
-                        <label for="editEventFile">Upload File</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" name="file_path" id="editEventFile" class="form-control">
-                            </div>
-                        </div>
-                    </div>
+        <!-- Event Description -->
+        <div class="form-group">
+            <label for="event_description">Event Description</label>
+            <textarea id="event_description" name="event_description" class="form-control" rows="4" required></textarea>
+        </div>
 
                     <!-- Other event fields (e.g., description, date, duration, location) -->
                     <!-- Add your form fields for creating events here -->
@@ -242,7 +226,6 @@
     </div>
 </div>
 
-<!-- Modal for editing events -->
 
 
 <!-- Bootstrap JS and jQuery -->

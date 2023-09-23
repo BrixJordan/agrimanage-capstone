@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    t">
+
 </head>
 <style>
-    /* Add CSS styles to style your sidebar */
+    /* Add CSS styles for your sidebar */
+    body {
+        background-color: #f8f9fa;
+    }
+
     .sidebar {
         background-color: #333;
         color: #fff;
@@ -18,6 +24,7 @@
         position: fixed;
         left: 0;
         top: 0;
+        padding-top: 20px;
         overflow-y: auto;
     }
 
@@ -48,20 +55,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 150px;
-        /* Adjust the height as needed */
+        height: 100px;
     }
 
     /* Make the logo circular */
     .circular-logo {
         border-radius: 50%;
-        width: 100px; /* Adjust the width as needed */
-        height: 100px; /* Should match width for a perfect circle */
+        width: 80px;
+        height: 80px;
     }
 
     /* Style the main content area */
     main {
-        margin-left: 250px; /* Adjust the margin to match your sidebar width */
+        margin-left: 250px;
         padding: 20px;
     }
 
@@ -70,6 +76,35 @@
         margin-right: 10px;
     }
 
+    /* Dropdown menu styles */
+    .dropdown-menu {
+        background-color: #333;
+        color: #fff;
+        border: none;
+    }
+
+    .dropdown-item {
+        color: #fff !important;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: #555;
+    }
+
+    .dropdown-toggle {
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    .dropdown-toggle:hover {
+        background-color: #555;
+    }
 </style>
 <body>
     <aside class="sidebar">
@@ -80,9 +115,12 @@
         <ul>
             <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="{{ route('admin.announcement') }}"><i class="fas fa-newspaper"></i> News and Update</a></li>
-            <li><a href="{{ route('admin.stock') }}"><i class="fas fa-chart-line"></i> Inventory Stocks</a></li>
-            <li><a href="{{ route('admin.user') }}"><i class="fas fa-users"></i> Users/Farmers</a></li>
+            <li><a href="{{route('admin.event')}}"><i class="fas fa-calendar"></i>Events</a></li>
+            <li><a class="dropdown-item" href="{{ route('admin.stock') }}"><i class="fas fa-chart-line"></i> Supply Management</a></li>
+            <li><a href="{{ route('admin.user') }}"><i class="fas fa-users"></i> Users Accounts</a></li>
+            <li><a href="{{ route('admin.farmer') }}"><i class="fas fa-users"></i>RSBSA Enrollment form</a></li>
             <li><a href="{{ route('admin.notification') }}"><i class="fas fa-bell"></i> Notifications</a></li>
+            <li><a href="{{ route('admin.transaction') }}"><i class="fas fa-tractor"></i> Farmers Transaction</a></li>
             <li><a href="{{ route('admin.profile') }}"><i class="fas fa-user"></i> Profile</a></li>
             <li><a href="{{ route('admin.setting') }}"><i class="fas fa-cog"></i> Settings</a></li>
             <li class="nav-item logout" style="display: flex; align-items: center;">

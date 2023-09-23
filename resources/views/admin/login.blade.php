@@ -26,7 +26,7 @@
     <form method="POST" action="{{ route('admin.login') }}">
             @csrf
       
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      <img src="{{ asset('image/logo.jpg') }}" alt="Your Logo" class="circular-logo">
     </div>
 
     <div class="container">

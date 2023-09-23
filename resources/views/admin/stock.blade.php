@@ -22,7 +22,10 @@
 <div class="row">
     <div class="col-md-6">
         <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#myModal">
-            Add Stocks
+            Record supply
+        </button>
+        <button type="button" class="btn btn-success mb-3" >
+            <a href="{{route('farmer.list')}}">Farmers List</a>
         </button>
     </div>
     <div class="col-md-6">
@@ -42,40 +45,44 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Image</th>
+            <th>Gate Pass NO</th>
+            <th>Quantity</th>
+            <th>Unit</th>
             <th>Description</th>
-            <th>Stocks Quantity</th>
-            <th>Date</th>
+            <th>Allocation</th>
+            <th>Balance</th>
+            <th>Requesting Officer</th>
+            <th>Authorized By</th>
+            <th>Recieved By</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-    @foreach ($stocks as $stock)
-    <tr>
-        <td>{{ $stock->id }}</td>
-        <td>
-            @if ($stock->stock_image)
-                <img src="{{ asset('images/' . $stock->stock_image) }}" alt="Stock Image" width="100">
-            @else
-                No Image
-            @endif
-        </td>
-        <td>{{ $stock->stock_description }}</td>
-        <td>{{ $stock->stock_quantity }}</td>
-        <td>{{ $stock->stock_date }}</td>
-        <td>
-        <button type="button" class="btn btn-primary" data-id="{{route('stock.edit', $stock->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  edit
-</button>
-            <form action="{{ route('stock.destroy', $stock->id) }}" method="post">
-                @csrf 
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-            </form>
-        </td>
-    </tr>
-@endforeach
-</tbody>
+        @foreach ($stocks as $stock)
+        <tr>
+            <td>{{$stock->id}}</td>
+            <td>{{$stock->gate_pass_no}}</td>
+            <td>{{$stock->quantity}}</td>
+            <td>{{$stock->unit}}</td>
+            <td>{{$stock->description}}</td>
+            <td>{{$stock->allocation}}</td>
+            <td>{{$stock->balance}}</td>
+            <td>{{$stock->requesting_officer}}</td>
+            <td>{{$stock->authorized_by}}</td>
+            <td>{{$stock->received_by}}</td>
+            <td>
+                <a href="{{route('stock.edit', $stock->id)}}">Edit</a>
+                <form action="{{route('stock.destroy', $stock->id)}}" method="post">
+                    @csrf 
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+
+        </tr>
+        @endforeach
+    </tbody>
+    
 </table>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -95,28 +102,100 @@
             <form method="POST" action="{{ route('addStock') }}" enctype="multipart/form-data">
                 @csrf
 
-                <!-- Image Input -->
                 <div class="form-group">
-                    <label for="stock_image">Image</label>
-                    <input type="file" name="stock_image" id="stock_image" class="form-control">
+                    <label for="for gate_pass_no" > Gate Pass No</label>
+                    <input type="text" name="gate_pass_no" id="" class="form-control">
+                    @error('gate_pass_no')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
                 </div>
 
-                <!-- Description Input -->
                 <div class="form-group">
-                    <label for="stock_description">Description</label>
-                    <textarea name="stock_description" id="stock_description" class="form-control"></textarea>
+                    <label for="for date" > Date</label>
+                    <input type="date" name="date" id="" class="form-control">
+                    @error('date')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
                 </div>
 
-                <!-- Stocks Input -->
                 <div class="form-group">
-                    <label for="stock_quantity">Stocks</label>
-                    <input type="number" name="stock_quantity" id="stock_quantity" class="form-control">
+                    <label for="for No:" >No </label>
+                    <input type="number" name="no" id="" class="form-control">
+                    @error('no')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
                 </div>
 
-                <!-- Date Input -->
                 <div class="form-group">
-                    <label for="stock_date">Date</label>
-                    <input type="date" name="stock_date" id="stock_date" class="form-control">
+                    <label for="for quantity" >Quantity </label>
+                    <input type="text" name="quantity" id="" class="form-control">
+                    @error('quantity')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for Unit" > Unit</label>
+                    <input type="text" name="unit" id="" class="form-control">
+                    @error('unit')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for description" > Description</label>
+                    <input type="text" name="description" id="" class="form-control">
+                    @error('description')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for allocation" >Allocation </label>
+                    <input type="text" name="allocation" id="" class="form-control">
+                    @error('allocation')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for balance" >Balance </label>
+                    <input type="text" name="balance" id="" class="form-control">
+                    @error('balance')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for lot_number" >Lot Number </label>
+                    <input type="text" name="lot_number" id="" class="form-control">
+                    @error('lot_number')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for requesting_officer" >Requesting Officer </label>
+                    <input type="text" name="requesting_officer" id="" class="form-control">
+                    @error('requesting_officer')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for authorized_by" >Authorized By</label>
+                    <input type="text" name="authorized_by" id="" class="form-control">
+                    @error('authorized_by')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="for recieved_by" >Recieved by </label>
+                    <input type="text" name="received_by" id="" class="form-control">
+                    @error('received_by')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
                 </div>
 
                 <!-- Submit Button -->
@@ -137,56 +216,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-            <!-- Form for adding stock information -->
-            <form method="POST" action="{{route('stock.update', $stock->id)}}" enctype="multipart/form-data" id="editStockForm">
-                @csrf
-                @method('PUT')
-                <input type="hidden" name="stock_id" id="edit_stock_id">
 
-                <!-- Image Input -->
-                <div class="form-group">
-                    <label for="edit_stock_image">Image</label>
-                    <input type="file" name="stock_image" id="edit_stock_image" class="form-control" value="{{$stock->stock_image}}">
-                </div>
-
-                <!-- Description Input -->
-                <div class="form-group">
-                    <label for="edit_stock_description">Description</label>
-                    <textarea name="stock_description" id="edit_stock_description" class="form-control" >{{ $stock->stock_description }}</textarea>
-                </div>
-
-                <!-- Stocks Input -->
-                <div class="form-group">
-                    <label for="edit_stock_quantity">Stocks</label>
-                    <input type="number" name="stock_quantity" id="edit_stock_quantity" class="form-control" value="{{$stock->stock_quantity}}">
-                </div>
-
-                <!-- Date Input -->
-                <div class="form-group">
-                    <label for="edit_stock_date">Date</label>
-                    <input type="date" name="stock_date" id="edit_stock_date" class="form-control" value="{{$stock->stock_date}}">
-                </div>
-
-                <!-- Submit Button -->
-                
-            
-        </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Update</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

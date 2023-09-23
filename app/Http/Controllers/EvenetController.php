@@ -26,7 +26,7 @@ class EvenetController extends Controller
 }
 public function edit(Event $event)
 {
-    return view('admin.announcement', compact('event'));
+    return view('announcement.edit', compact('event'));
     //
 }
 
@@ -49,4 +49,15 @@ public function update(Request $request,Event $event)
         return redirect()->route('admin.announcement');
         //
     }
+    public function search(Request $request)
+{
+    $searchQuery = $request->input('search');
+
+  
+    $events = Event::where('body', 'like', '%' . $searchQuery . '%')->get();
+
+   
+    return view('admin.announcement', ['events' => $events]);
+}
+
 }

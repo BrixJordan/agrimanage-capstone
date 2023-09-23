@@ -16,9 +16,17 @@ public function announcement()
 {
     return view('admin.announcement');
 }
+
+public function event(){
+    return view('admin.event');
+}
+
 public function user()
 {
     return view('admin.user');
+}
+public function farmer(){
+    return view('admin.farmer');
 }
 
 public function notification()
@@ -26,6 +34,9 @@ public function notification()
     return view('admin.notification');
 }
 
+public function transaction(){
+    return view('admin.transaction');
+}
 public function stock()
 {
     return view('admin.stock');

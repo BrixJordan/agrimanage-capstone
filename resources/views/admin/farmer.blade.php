@@ -92,17 +92,19 @@
 
 @section('content')
 
-<h1> User</h1>
+<h1> User/Farmers</h1>
 
 <div class="container-fluid">
     
     <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#myModal">
-            <a href="{{route('users.create')}}">Add User Account</a>
+            <a href="{{route('users.create')}}">Add Farmer</a>
         </button>
+        
     </div>
-    <div class="col-md-6">
+    
+    <div class="col-md-4">
         <form action="" method="GET" class="form-inline">
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Search farmers">
@@ -123,12 +125,35 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Last Name </th>
-                <th>Email</th>
+                <th>Address</th>
                 <th>Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        
+        <tbody>
+            @foreach ($farmers as $farmer)
+            <!-- Example row, you can loop through your data to generate rows -->
+            <tr>
+                <td>{{$farmer->id}}</td>
+                <td>{{$farmer->farmer_firstname}}</td>
+                <td>{{$farmer->farmer_surname}}</td>
+                <td>{{$farmer->address}}</td>
+                <td>{{$farmer->created_at}}</td>
+                <td>
+                    <a href="{{route('users.edit', $farmer->id)}}" class="btn btn-primary btn-sm" >Edit</a>
+                    <form action="{{route('farmer.destroy', $farmer->id)}}" method="post">
+                        @csrf 
+                        @method('DELETE')
+                        <button type="submit">delete</button>
+
+                    </form>
+                    
+                    <a href="{{route('users.view')}}" class="btn btn-light btn-sm">View</a>
+                </td>
+            </tr>
+            @endforeach
+            <!-- Add more rows as needed -->
+        </tbody>
     </table>
 </div>
     <!-- Your dashboard content goes here -->
