@@ -40,20 +40,19 @@
 @section('content')
 
 
-
     <div class="container mt-4">
         <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
-            @csrf 
-            <div class="row">
-                <div class="col-sm-8">
-                    <h1>ANI At KITA RSBSA ENROLLMENT FORM</h1>
-                    <h4>REGISTRY SYSTEM FOR BASIC SECTOR IN AGRICULTURE</h4>
-                </div>
+        <div class="row">
+            <div class="col-sm-8">
+        <h1>ANI At KITA RSBSA ENROLLMENT FORM</h1>
+        <h4>REGISTRY SYSTEM FOR BASIC SECTOR IN AGRICULTURE</h4>
+    </div>
 
-                <div class="col-sm-4">
-            <video id="webcam" width="200" height="200" autoplay></video>
+      <div id="section1">
+        <div class="col-sm-4">
+            <video id="webcam" width="640" height="480" autoplay></video>
             <button id="capture">Capture</button>
-            <canvas id="canvas" width="200" height="200"></canvas>
+            <canvas id="canvas" width="640" height="480"></canvas>
             <img id="captured-image" src="" alt="Captured Image">
             
                 <input type="hidden" name="captured_image" id="captured_image">
@@ -263,7 +262,6 @@
                     </div>
                 </div>
             </div>
-            
 
             <div class="row">
                 <div class="col-md-6">
@@ -338,6 +336,7 @@
                     </div>
                 </div>
             </div>
+
             <h3 class="mt-4">Part 2: Farm Profile</h3>
 
             <!-- Fields for Farm Profile here -->
@@ -366,7 +365,14 @@
                 <label for="for_gross_annual_income_last_year">Gross Annual Income Last Year:</label>
                 <input type="text" name="income" id="for_gross_annual_income_last_year" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="mt-4">
+                <button type="button" class="btn btn-primary" onclick="showSection(2)">Next</button>
+            </div>
+        </div>  
+    </div>
+
+            <div id="section2" style="display:none;">
+                <div class="form-group">
                     <label for="farm_location">Farm Location:</label>
                     <input type="text" id="farm_location" name="farm_location" class="form-control" required>
                 </div>
@@ -414,11 +420,23 @@
                     <label for="ownership_type">Ownership Type:</label>
                     <input type="text" id="ownership_type" name="ownership_type" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
-        </div>  
-                <!-- ... (rest of your form) ... -->
+                <div class="mt-4">
+                    <button type="button" class="btn btn-primary" onclick="showSection(1)">Previous</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+
             </div>
         </form>
+        <script>
+            function showSection(sectionNumber) {
+                // Hide all sections
+                document.getElementById("section1").style.display = "none";
+                document.getElementById("section2").style.display = "none";
+        
+                // Show the selected section
+                document.getElementById("section" + sectionNumber).style.display = "block";
+            }
+        </script>
     </div>
     @endsection
 </body>

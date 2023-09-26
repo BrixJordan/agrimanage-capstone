@@ -123,9 +123,10 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Last Name </th>
-                <th>Email</th>
-                <th>Date</th>
-                <th>Actions</th>
+                <th>Address</th>
+                <th>Account</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         

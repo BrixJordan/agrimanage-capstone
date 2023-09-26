@@ -29,6 +29,8 @@ public function farmer(){
     return view('admin.farmer');
 }
 
+
+
 public function notification()
 {
     return view('admin.notification');

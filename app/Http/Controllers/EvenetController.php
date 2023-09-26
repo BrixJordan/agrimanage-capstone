@@ -16,7 +16,33 @@ class EvenetController extends Controller
    // Store a newly created event in the database
    public function store(Request $request)
    {
-    Event::create($request->all());
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation rules for an image upload
+        // Add other validation rules for your form fields
+    ]);
+
+    // Get the image data from the form
+    $image = $request->file('image');
+
+    // Generate a unique filename for the image
+    $filename = uniqid() . '.' . $image->getClientOriginalExtension(); // Example: "12345.png"
+
+    // Save the image to the "public/images" folder
+    $imagePath = public_path('images/' . $filename);
+    $image->move(public_path('images'), $filename);
+
+    // Create a new Event model instance and set its attributes
+    $event = new Event;
+    $event->title = $request->input('title');
+    $event->description = $request->input('description');
+    $event->image = 'images/' . $filename; // Set the image path
+
+    // Save the event to the database
+    $event->save();
+
+    // Redirect to the appropriate route
     return redirect()->route('admin.announcement');
       
 

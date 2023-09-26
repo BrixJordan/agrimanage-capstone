@@ -140,7 +140,8 @@
                 <td>{{ $event->id }}</td>
                 <td>
                     @if ($event->title)
-                        <img src="/images/{{ $event->title }}" alt="{{$event->title}}" style="height: 390px;">
+                    <img src="{{ asset('images/' . $event->title) }}" alt="{{ $event->title }}" style="height: 390px;">
+
                     @else
                         No Image
                     @endif

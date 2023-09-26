@@ -57,6 +57,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     
     // User route
     Route::get('/user', [AdminController::class, 'user'])->name('admin.user');
+
+    //farmer
+    Route::get('/farmer', [AdminController::class, 'farmer'])->name('admin.farmer');
     
     // Profile route
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
