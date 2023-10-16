@@ -42,6 +42,7 @@
 
     <div class="container mt-4">
         <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+            @csrf
         <div class="row">
             <div class="col-sm-8">
         <h1>ANI At KITA RSBSA ENROLLMENT FORM</h1>
@@ -124,11 +125,11 @@
                             <input class="form-check-input" type="radio" id="female" name="sex" value="Female">
                             <label class="form-check-label" for="female">Female</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="other" name="sex" value="Other">
-                            <label class="form-check-label" for="other">Other</label>
-                        </div>
+                        
+                        
+                        
                     </div>
+                    
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
@@ -140,6 +141,12 @@
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="text" id="" name="password" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="text">Email Address</label>
+                        <input type="text" id="" name="email_add" class="form-control">
                     </div>
                 </div>
             </div>
@@ -365,14 +372,7 @@
                 <label for="for_gross_annual_income_last_year">Gross Annual Income Last Year:</label>
                 <input type="text" name="income" id="for_gross_annual_income_last_year" class="form-control">
             </div>
-            <div class="mt-4">
-                <button type="button" class="btn btn-primary" onclick="showSection(2)">Next</button>
-            </div>
-        </div>  
-    </div>
-
-            <div id="section2" style="display:none;">
-                <div class="form-group">
+            <div class="form-group">
                     <label for="farm_location">Farm Location:</label>
                     <input type="text" id="farm_location" name="farm_location" class="form-control" required>
                 </div>
@@ -420,23 +420,14 @@
                     <label for="ownership_type">Ownership Type:</label>
                     <input type="text" id="ownership_type" name="ownership_type" class="form-control" required>
                 </div>
-                <div class="mt-4">
-                    <button type="button" class="btn btn-primary" onclick="showSection(1)">Previous</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
-                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            
+        </div>  
+    </div>
 
-            </div>
+            
         </form>
-        <script>
-            function showSection(sectionNumber) {
-                // Hide all sections
-                document.getElementById("section1").style.display = "none";
-                document.getElementById("section2").style.display = "none";
         
-                // Show the selected section
-                document.getElementById("section" + sectionNumber).style.display = "block";
-            }
-        </script>
     </div>
     @endsection
 </body>

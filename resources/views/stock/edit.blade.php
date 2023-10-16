@@ -106,6 +106,14 @@
                     <input type="text" name="description" id="" class="form-control" value="{{$stock->description}}">
                     
                 </div>
+                <div class="form-group">
+                    <label for="classification">Classification</label>
+                        <select name="classification" id="classification" class="form-control">
+                            <option value="hybrid">Hybrid</option  value="{{$stock->classification}}">
+                            <option value="inbred">Inbred</option value="{{$stock->classification}}">
+                        </select>
+                            
+                 </div>
 
                 <div class="form-group">
                     <label for="for allocation" >Allocation </label>

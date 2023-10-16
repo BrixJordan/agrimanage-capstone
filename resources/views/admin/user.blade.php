@@ -7,6 +7,8 @@
 </head>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     
     <!-- Custom CSS -->
     <style>
@@ -92,16 +94,11 @@
 
 @section('content')
 
-<h1> User</h1>
+<h1> Users Account to the system</h1>
 
 <div class="container-fluid">
     
-    <div class="row">
-    <div class="col-md-6">
-        <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#myModal">
-            <a href="{{route('users.create')}}">Add User Account</a>
-        </button>
-    </div>
+    
     <div class="col-md-6">
         <form action="" method="GET" class="form-inline">
             <div class="input-group">
@@ -121,17 +118,62 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Last Name </th>
-                <th>Address</th>
-                <th>Account</th>
-                <th>Status</th>
+                <th>Farmer Name</th>
+                <th>Farmer Account</th>
+             
+                <th>Password</th>
                 <th>Action</th>
             </tr>
         </thead>
+        <tbody>
+        @foreach ($users as $user)
+<tr>
+    <td>{{ $user->id }}</td>
+    <td>{{ $user->surname }}</td>
+    <td>{{ $user->email }}</td>
+    <td>{{ $user->password }}</td>
+    <td>
+        <button type="button" class="send-account-button"
+            data-email="{{ $user->email }}"
+            data-password="{{ $user->password }}">
+            Send Account
+        </button>
+    </td>
+</tr>
+@endforeach
+
+
+        </tbody>
         
     </table>
 </div>
+<script>
+    // Listen for a click on the "Send Account" button
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.send-account-button').forEach(function (button) {
+            button.addEventListener('click', function () {
+                // Get the user's email and password from the button's data attributes
+                const email = button.getAttribute('data-email');
+                const password = button.getAttribute('data-password');
+
+                // Send the account information
+                sendAccount(email, password);
+            });
+        });
+    });
+
+    // Function to send the account information
+    function sendAccount(email, password) {
+        // Here you can send an AJAX request to send the account information
+        // If the sending is successful, display a success SweetAlert
+        Swal.fire({
+            icon: 'success',
+            title: 'Account Information Sent',
+            text: 'The account information has been sent successfully.',
+        });
+    }
+</script>
+
     <!-- Your dashboard content goes here -->
 @endsection
     

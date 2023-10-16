@@ -57,7 +57,9 @@
     <!-- First Group in the First Row -->
     <div class="dashboard-card">
         <i class="fas fa-users fa-3x"></i> <!-- Add an icon for Total Members -->
-        <h3>Total Members</h3>
+        <h3>Total Members </h3>
+        
+        
     </div>
     <div class="dashboard-card">
         <i class="fas fa-boxes fa-3x"></i> <!-- Add an icon for Total Supplies -->
@@ -91,14 +93,21 @@
         <h3>Total Events</h3>
     </div>
 </div>
+<br><br>
+<div class="dashboard-row">
+    <!-- Second Group in the Second Row -->
+    <div class="dashboard-card">
+        <i class="fas fa-user fa-3x"></i> <!-- Add an icon for Total Announcements -->
+        <h3>Total Voucher Generated</h3>
+    </div>
+    <div class="dashboard-card">
+        <i class="fas fa-calendar fa-3x"></i> <!-- Add an icon for Total Notifications -->
+        <h3>Total Farmers Transaction</h3>
+    </div>
+</div>
 
 </div>
-<div class="container">
-    <h2>Reports</h2>
-</div>
-        </div>
-        <h1>Data Analytics and reports here</h1>
-        <!-- Your dashboard content goes here -->
+
     @endsection
 </body>
 </html>

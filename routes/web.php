@@ -10,6 +10,9 @@ use App\Http\Controllers\StockController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\GanapController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\VoucherController;
+use App\Http\Controllers\UserController;
+
 
 
 
@@ -95,12 +98,14 @@ Route::post('/events/store', [EvenetController::class, 'store'])->name('events.s
 
 // Farmer enrollment routes
 Route::get('/users/create', [FarmerController::class, 'create'])->name('users.create');
-Route::get('/admin/farmer', [FarmerController::class, 'index'])->name('admin.farmer');
+Route::get('/admin/farmer', [FarmerController::class, 'index'])->name('admin.index');
 Route::post('/farmers/farmer', [FarmerController::class, 'store'])->name('users.store');
 Route::delete('/farmers/{farmer}', [FarmerController::class, 'destroy'])->name('farmer.destroy');
 Route::get('/farmers/{farmer}/edit', [FarmerController::class, 'edit'])->name('users.edit');
 Route::put('/farmers/{farmer}', [FarmerController::class, 'update'])->name('users.update');
 Route::get('/users/view', [FarmerController::class, 'show'])->name('users.view');
+Route::get('/admin/farmer', [FarmerController::class, 'filter'])->name('admin.farmer');
+
 
 
 // Stocks route for storing stock data
@@ -149,6 +154,19 @@ Route::get('/locale/{language}', [LocalizationController::class, 'setLang'])->na
 Route::get('/farmer/list', [ListController::class, 'index'])->name('farmer.list');
 Route::post('/farmer/list', [ListController::class, 'list'])->name('farmer.list');
 
+
+
+//Route for voucher
+
+Route::post('/generate/vouchers', [VoucherController::class, 'generateVoucher'])->name('generate.vouchers');
+
+//Route for history of voucher
+
+Route::get('/vouchers/history', [VoucherController::class, 'voucherHistory'])->name('vouchers.history');
+
+Route::get('/admin/user', [FarmerController::class, 'indexUser'])->name('admin.user');
+
+Route::post('/send-account', [UserController::class, 'sendAccount'])->name('sendAccount');
 
 
 

@@ -1,406 +1,435 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmer Enrollment Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>ANI At KITA RSBSA ENROLLMENT FORM</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-        
-
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
+        /* Custom CSS for consistent UI */
         body {
-          font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
         }
-        table{
-           border: 1px solid black;
-            width: 100%;
-        }
-        .formbold-mb-3 {
-          margin-bottom: 15px;
-        }
-        .left-input {
-    float: left;
-}
-
-.right-input {
-    float: right;
-    margin-right: 20px;
-}
-
-        .form-container {
-            align-items: center;
-            width: 60%;
-            margin:  auto;
+        .container {
+            background-color: #ffffff;
             padding: 20px;
-            border: 1px solid black; /* Add border styles here */
-            border-radius: 5px; /* Add border-radius for rounded corners */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        .broken-line {
-            border-top: 2px dashed #ccc; /* You can change the color and style (dashed, dotted, etc.) */
-            margin: 20px 0; /* Adjust the margin to control the spacing */
+        h1, h4 {
+            color: #007bff;
+            text-align: center;
         }
-        .formbold-main-wrapper {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 48px;
-        }
-        p{
-            margin-left: 20px;
-        }
-        .formbold-form-wrapper {
-          margin: 0 auto;
-          max-width: 570px;
-          width: 100%;
-          background: white;
-          padding: 40px;
-        }
-      
-        .formbold-img {
-          display: block;
-          margin: 0 auto 45px;
-        }
-      
-        .formbold-input-wrapp > div {
-          display: flex;
-          gap: 20px;
-        }
-      
-        .formbold-input-flex {
-          display: flex;
-          gap: 20px;
-          margin-bottom: 15px;
-        }
-        .formbold-input-flex > div {
-          width: 50%;
-        }
-        .formbold-form-input {
-          width: 100%;
-          padding: 13px 22px;
-          border-radius: 5px;
-          border: 1px solid #dde3ec;
-          background: #ffffff;
-          font-weight: 500;
-          font-size: 16px;
-          color: #536387;
-          outline: none;
-          resize: none;
-        }
-        .formbold-form-input1 {
-          width: 10%;
-          padding: 13px 22px;
-          border-radius: 2px;
-          border: 1px solid black;
-          background: #ffffff;
-          font-weight: 500;
-          font-size: 5px;
-          color: #536387;
-          outline: none;
-          resize: none;
-        }
-        .formbold-form-input::placeholder,
-        select.formbold-form-input,
-        .formbold-form-input[type='date']::-webkit-datetime-edit-text,
-        .formbold-form-input[type='date']::-webkit-datetime-edit-month-field,
-        .formbold-form-input[type='date']::-webkit-datetime-edit-day-field,
-        .formbold-form-input[type='date']::-webkit-datetime-edit-year-field {
-          color: rgba(83, 99, 135, 0.6);
-        }
-      
-        .formbold-form-input:focus {
-          border-color: #6a64f1;
-          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-        }
-        .formbold-form-label {
-          color: #07074D;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 24px;
-          display: block;
-          margin-bottom: 10px;
-        }
-      
-        .formbold-form-file-flex {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-        }
-        .formbold-form-file-flex .formbold-form-label {
-          margin-bottom: 0;
-        }
-        .formbold-form-file {
-          font-size: 14px;
-          line-height: 24px;
-          color: #536387;
-        }
-        .formbold-form-file::-webkit-file-upload-button {
-          display: none;
-        }
-        .formbold-form-file:before {
-          content: 'Upload file';
-          display: inline-block;
-          background: #EEEEEE;
-          border: 0.5px solid #FBFBFB;
-          box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.25);
-          border-radius: 3px;
-          padding: 3px 12px;
-          outline: none;
-          white-space: nowrap;
-          
-          cursor: pointer;
-          color: #637381;
-          font-weight: 500;
-          font-size: 12px;
-          line-height: 16px;
-          margin-right: 10px;
-        }
-      
-        .formbold-btn {
-          text-align: center;
-          width: 100%;
-          font-size: 16px;
-          border-radius: 5px;
-          padding: 14px 25px;
-          border: none;
-          font-weight: 500;
-          background-color: #6a64f1;
-          color: white;
-          cursor: pointer;
-          margin-top: 25px;
-        }
-        .formbold-btn:hover {
-          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-        }
-      
-        .formbold-w-45 {
-          width: 45%;
-        }
-        .flex-row {
-    display: flex;
-}
-        /* Style the form container to resemble a document */
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Style fieldset and legend elements */
-        fieldset {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        legend {
+        label {
             font-weight: bold;
         }
-
-        /* Style table for input fields */
-        table {
-            width: 100%;
+        .form-group {
+            margin-bottom: 20px;
         }
-
-        table tr td {
-            padding: 5px;
+        span.required {
+            color: red;
         }
-
-        /* Style buttons */
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+        
     </style>
 </head>
 <body>
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
 
 
- 
+    <div class="container mt-4">
+    <form method="POST" action="{{ route('users.update', $farmer->id) }}" enctype="multipart/form-data">
+            @csrf
+            method('PUT')
+        <div class="row">
+            <div class="col-sm-8">
+        <h1>ANI At KITA RSBSA ENROLLMENT FORM</h1>
+        <h4>REGISTRY SYSTEM FOR BASIC SECTOR IN AGRICULTURE</h4>
+    </div>
 
-<div class="form-container">
-        <h1>Farmer Edit Enrollment Form</h1>
-        <form method="POST" action="{{ route('users.update', $farmer->id) }}" enctype="multipart/form-data">
-    @csrf
-    @method("PUT")
+      <div id="section1">
+        <div class="col-sm-4">
+            <video id="webcam" width="640" height="480" autoplay></video>
+            <button id="capture">Capture</button>
+            <canvas id="canvas" width="640" height="480"></canvas>
+            <img id="captured-image" src="" alt="Captured Image">
+            
+                <input type="hidden" name="captured_image" id="captured_image">
+                
+          
+        
+            <script>
+                const video = document.getElementById('webcam');
+                const canvas = document.getElementById('canvas');
+                const capturedImage = document.getElementById('captured-image');
+                const captureButton = document.getElementById('capture');
+                const capturedImageInput = document.getElementById('captured_image');
+        
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then((stream) => {
+                        video.srcObject = stream;
+                    })
+                    .catch((error) => {
+                        console.error('Error accessing webcam:', error);
+                    });
+        
+                captureButton.addEventListener('click', () => {
+                    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                    capturedImage.src = canvas.toDataURL('image/png');
+                    capturedImageInput.value = capturedImage.src;
+                });
+            </script>
+        </div>
+    
 
-    <!-- Part 1: Personal Information -->
-    <fieldset>
-        <legend>Part 1: Personal Information</legend>
-        <table>
-            <tr>
-                <td><label for="farmer_surname">Surname</label></td>
-                <td><input type="text" name="farmer_surname" id="farmer_surname" class="form-control" value="{{$farmer->farmer_surename}}" required></td>
-            </tr>
-            <tr>
-                <td><label for="farmer_firstname">First Name</label></td>
-                <td><input type="text" name="farmer_firstname" id="farmer_firstname" class="form-control" required></td>
-            </tr>
-            <tr>
-                <td><label for="farmer_middlename">Middle Name</label></td>
-                <td><input type="text" name="farmer_middlename" id="farmer_middlename" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label for="farmer_extension">Extension Name</label></td>
-                <td><input type="text" name="farmer_extension" id="farmer_extension" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label for="farmer_sex">Sex</label></td>
-                <td>
-                    <input type="radio" name="farmer_sex" value="Male" id="male"> <label for="male">Male</label>
-                    <input type="radio" name="farmer_sex" value="Female" id="female"> <label for="female">Female</label>
+        <h3 class="mt-4">Personal Information</h3>
+        
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="surname">Surname <span class="required">*</span>:</label>
+                        <input type="text" id="surname" name="surname" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="first_name">First Name <span class="required">*</span>:</label>
+                        <input type="text" id="first_name" name="first_name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="middle_name">Middle Name:</label>
+                        <input type="text" id="middle_name" name="middle_name" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="extension_name">Extension Name:</label>
+                        <input type="text" id="extension_name" name="extension_name" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="sex">Sex (Gender):</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="male" name="sex" value="Male">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="female" name="sex" value="Female">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        
+                        
+                        
+                    </div>
                     
-                </td>
-            </tr>
-            <tr>
-                <td><label for="address">Address</label></td>
-                <td><textarea name="address" id="address" class="form-control" required></textarea></td>
-            </tr>
-            <tr>
-                <td> <label for="religion">Religion</label></td>
-                <td>
-                    <input type="text" name="religion" id="religion" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label for="status">Status</label></td>
-                <td>
-                    <input type="text" name="status" id="status" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label>Education</label></td>
-                <td>
-                    <input type="text" name="education" id="education" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label for="disability">Person with Disability</label></td>
-                <td>
-                    <input type="radio" name="disability" value="Yes" id="disability-yes"> <label for="disability-yes">Yes</label>
-                    <input type="radio" name="disability" value="No" id="disability-no"> <label for="disability-no">No</label>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="fourps">4P's Beneficiary</label></td>
-                <td>
-                    <input type="radio" name="fourps" value="Yes" id="fourps-yes"> <label for="fourps-yes">Yes</label>
-                    <input type="radio" name="fourps" value="No" id="fourps-no"> <label for="fourps-no">No</label>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="gov_id">With Government ID?</label></td>
-                <td>
-                    <input type="radio" name="gov_id" value="Yes" id="gov-id-yes"> <label for="gov-id-yes">Yes</label>
-                    <input type="radio" name="gov_id" value="No" id="gov-id-no"> <label for="gov-id-no">No</label>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="id_type">ID Type</label></td>
-                <td>
-                    <input type="text" name="id_type" id="id_type" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label for="id_number">ID Number</label></td>
-                <td>
-                    <input type="text" name="id_number" id="id_number" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label for="farmer_association">Member of Farmer Association/Cooperative?</label></td>
-                <td>
-                    <input type="radio" name="farmer_association" value="Yes" id="association-yes"> <label for="association-yes">Yes</label>
-                    <input type="radio" name="farmer_association" value="No" id="association-no"> <label for="association-no">No</label>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="association_details">Specify Association/Cooperative</label></td>
-                <td> <input type="text" name="association_details" id="association_details" class="form-control"></td>
-            </tr>
-            <tr>
-                <td><label for="emergency_contact">Person to Notify in Case of Emergency</label></td>
-                <td><input type="text" name="emergency_contact" id="emergency_contact" class="form-control"></td>
-            </tr>
-        </table>
-    </fieldset>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="text" id="" name="email" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input type="text" id="" name="password" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="text">Email Address</label>
+                        <input type="text" id="" name="email_add" class="form-control">
+                    </div>
+                </div>
+            </div>
 
-    <!-- Part 2: Contact Information -->
-    <fieldset>
-        <legend>Part 2: Contact Information</legend>
-        <table>
-            <tr>
-                <td><label>Farm Profile</label></td>
-                <td>
-                    <input type="text" name="farm_profile" id="farm_profile" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label>Type of Farming Activity</label></td>
-                <td>
-                    <input type="text" name="farming_activity" id="farming_activity" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label>Kind of Work (for Farmworker/Laborer)</label></td>
-                <td>
-                    <input type="text" name="work_kind" id="work_kind" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label>Type of Fishing Activity (for Fisherfolk)</label></td>
-                <td>
-                    <input type="text" name="fishing_activity" id="fishing_activity" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label>Type of Involvement (for Agri Youth)</label></td>
-                <td>
-                    <input type="text" name="youth_involvement" id="youth_involvement" class="form-control">
-                </td>
-            </tr>
-            <tr>
-                <td><label>Gross Annual Income Last Year</label></td>
-                <td>
-                    Farming: <input type="text" name="gross_income_farming" class="form-control"><br>
-                    Non-Farming: <input type="text" name="gross_income_non_farming" class="form-control">
-                </td>
-            </tr>
-        </table>
-        <button type="submit">Update Data Form</button>
-       
-</form>
-    </fieldset>
-    
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="house_number">House Number:</label>
+                        <input type="text" id="house_number" name="house_number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" id="street" name="street" class="form-control">
+                    </div>
+                </div>
+            </div>
 
-    <!-- Add more fieldsets for other sections as needed -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="barangay">Barangay:</label>
+                        <input type="text" id="barangay" name="barangay" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="municipality">Municipality:</label>
+                        <input type="text" id="municipality" name="municipality" class="form-control">
+                    </div>
+                </div>
+            </div>
 
-    
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="province">Province:</label>
+                        <input type="text" id="province" name="province" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="region">Region:</label>
+                        <input type="text" id="region" name="region" class="form-control">
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="religion">Religion:</label>
+                        <input type="text" id="religion" name="religion" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="civil_status">Civil Status:</label>
+                        <input type="text" name="civil_status" id="" class="form-control">
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="education">Highest Formal Education:</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="elementary" name="education" value="elementary">
+                            <label class="form-check-label" for="elementary">Elementary</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="high_school" name="education" value="high_school">
+                            <label class="form-check-label" for="high_school">High School</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="college" name="education" value="college">
+                            <label class="form-check-label" for="college">College</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="post_graduate" name="education" value="post_graduate">
+                            <label class="form-check-label" for="post_graduate">Post Graduate</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="disability">Person with Disability:</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="disability_yes" name="disability" value="yes">
+                            <label class="form-check-label" for="disability_yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="disability_no" name="disability" value="no">
+                            <label class="form-check-label" for="disability_no">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    
-   
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="four_ps">4P's Beneficiary:</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="four_ps_yes" name="four_ps" value="yes">
+                            <label class="form-check-label" for="four_ps_yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="four_ps_no" name="four_ps" value="no">
+                            <label class="form-check-label" for="four_ps_no">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="government_id">Government ID:</label>
+                        <input type="text" id="government_id" name="government_id" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="id_number">ID Number:</label>
+                        <input type="text" id="id_number" name="id_number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="cooperative_member">Member of Cooperative:</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="cooperative_yes" name="cooperative_member" value="yes">
+                            <label class="form-check-label" for="cooperative_yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="cooperative_no" name="cooperative_member" value="no">
+                            <label class="form-check-label" for="cooperative_no">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="coop_specify">Specify Cooperative (if yes):</label>
+                <input type="text" id="coop_specify" name="coop_specify" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="maiden_name">Mother's Maiden Name:</label>
+                <input type="text" id="maiden_name" name="maiden_name" class="form-control">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="household_head">Household Head:</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="head_yes" name="household_head" value="yes">
+                            <label class="form-check-label" for="head_yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="head_no" name="household_head" value="no">
+                            <label class="form-check-label" for="head_no">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="head_name">Name of Household Head (if no):</label>
+                        <input type="text" id="head_name" name="head_name" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="relationship">Relationship to Household Head:</label>
+                <input type="text" id="relationship" name="relationship" class="form-control">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="emergency_contact">Person to Notify in Case of Emergency:</label>
+                        <input type="text" id="emergency_contact" name="emergency_contact" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="emergency_contact_number">Contact Number:</label>
+                        <input type="tel" id="emergency_contact_number" name="emergency_contact_number" class="form-control" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mt-4">Part 2: Farm Profile</h3>
+
+            <!-- Fields for Farm Profile here -->
+
+            <div class="form-group">
+                <label for="for_farmers">For Farmers(Type for farming activity):</label>
+                <input type="text" name="farmers" id="for_farmers" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="kind_of_work">Kind Of Work (For Farm Worker):</label>
+                <input type="text" name="work" id="kind_of_work" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="type_of_fishing_activity">Type of Fishing Activity (For Fisherfolk):</label>
+                <input type="text" name="fishing" id="type_of_fishing_activity" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="type_of_involvement">Type of Involvement (For AgriYouth):</label>
+                <input type="text" name="involvement" id="type_of_involvement" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="for_gross_annual_income_last_year">Gross Annual Income Last Year:</label>
+                <input type="text" name="income" id="for_gross_annual_income_last_year" class="form-control">
+            </div>
+            <div class="form-group">
+                    <label for="farm_location">Farm Location:</label>
+                    <input type="text" id="farm_location" name="farm_location" class="form-control" required>
+                </div>
+        
+                <!-- Total Farm Area -->
+                <div class="form-group">
+                    <label for="total_farm_area">Total Farm Area (in hectares):</label>
+                    <input type="number" id="total_farm_area" name="total_farm_area" class="form-control" required>
+                </div>
+        
+                <!-- Within Ancestral Domain (Yes or No) -->
+                <div class="form-group">
+                    <label>Within Ancestral Domain:</label>
+                    <div>
+                        <input type="radio" id="ancestral_domain_yes" name="within_ancestral_domain" value="yes">
+                        <label for="ancestral_domain_yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="ancestral_domain_no" name="within_ancestral_domain" value="no">
+                        <label for="ancestral_domain_no">No</label>
+                    </div>
+                </div>
+        
+                <!-- Agrarian Reform Beneficiary (Yes or No) -->
+                <div class="form-group">
+                    <label>Agrarian Reform Beneficiary:</label>
+                    <div>
+                        <input type="radio" id="agrarian_reform_yes" name="agrarian_reform_beneficiary" value="yes">
+                        <label for="agrarian_reform_yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="agrarian_reform_no" name="agrarian_reform_beneficiary" value="no">
+                        <label for="agrarian_reform_no">No</label>
+                    </div>
+                </div>
+        
+                <!-- Ownership Document Number -->
+                <div class="form-group">
+                    <label for="ownership_document_no">Ownership Document Number:</label>
+                    <input type="text" id="ownership_document_no" name="ownership_document_no" class="form-control" required>
+                </div>
+        
+                <!-- Ownership Type -->
+                <div class="form-group">
+                    <label for="ownership_type">Ownership Type:</label>
+                    <input type="text" id="ownership_type" name="ownership_type" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">Update</button>
+            
+        </div>  
+    </div>
+
+            
+        </form>
+        
+    </div>
     @endsection
-
-    
-
 </body>
 </html>

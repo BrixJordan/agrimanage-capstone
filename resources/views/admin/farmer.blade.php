@@ -101,20 +101,47 @@
         <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#myModal">
             <a href="{{route('users.create')}}">Add Farmer</a>
         </button>
+        <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#myModal">
+            <a href="{{route('admin.user')}}">View Farmers generated account</a>
+        </button>
         
     </div>
     
     <div class="col-md-4">
-        <form action="" method="GET" class="form-inline">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Search farmers">
-                <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-filter"></i></span>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </div>
-            
-        </form>
+    <form action="{{ route('admin.farmer') }}" method="GET" class="form-inline">
+    <div class="input-group">
+        <select name="filter" class="form-control">
+            <option value="">Select Barangay</option>
+            <option value="Anulid">Anulid</option>
+            <option value=" Atainan">Atainan</option>
+            <option value=" Bersamin">Bersamin</option>
+            <option value=" Canarvacanan">Canarvacanan</option>
+            <option value="Caranglaan ">Caranglaan</option>
+            <option value=" Curareng">Curareng</option>
+            <option value=" Gualsic">Gualsic</option>
+            <option value=" Kisikis">Kisikis</option>
+            <option value=" Laoac">Laoac</option>
+            <option value="Macyo ">Macayo</option>
+            <option value="Pindangan Centro ">Pindangan Centro</option>
+            <option value=" Pindangan East">Pindangan East</option>
+            <option value="Pindangan West ">Pindangan West</option>
+            <option value="Poblacion East ">Poblacion East</option>
+            <option value="Poblacion West ">Poblacion West</option>
+            <option value="San Juan ">San Juan</option>
+            <option value="San Nicolas ">San Nicolas</option>
+            <option value="San Pedro Apartado ">San Pedro Apartado</option>
+            <option value="San Pedro ili ">San Pedro ili</option>
+            <option value=" San Vicente">San Vicente</option>
+            <option value="Vacante">Vacante</option>
+            <!-- Add more barangay options here as needed -->
+        </select>
+        <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-filter"></i></span>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </div>
+</form>
+
     </div>
 </div>
 
@@ -123,21 +150,26 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Last Name </th>
-                <th>Address</th>
-                <th>Date</th>
+                
+                <th>Farmer Name</th>
+                <th>Farmer Email Address</th>
+                <th>Farmer Address</th>
+                <th>Farmer Land Hectare</th>
+                <th>Created Account Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($farmers as $farmer)
+            
             <!-- Example row, you can loop through your data to generate rows -->
             <tr>
                 <td>{{$farmer->id}}</td>
-                <td>{{$farmer->farmer_firstname}}</td>
-                <td>{{$farmer->farmer_surname}}</td>
-                <td>{{$farmer->address}}</td>
+                
+                <td>{{$farmer->first_name}}</td>
+                <td>{{$farmer->email_add}}</td>
+                <td>{{$farmer->barangay}}</td>
+                <td>{{$farmer->total_farm_area}}</td>
                 <td>{{$farmer->created_at}}</td>
                 <td>
                     <a href="{{route('users.edit', $farmer->id)}}" class="btn btn-primary btn-sm" >Edit</a>
@@ -148,9 +180,10 @@
 
                     </form>
                     
-                    <a href="{{route('users.view')}}" class="btn btn-light btn-sm">View</a>
+                    
                 </td>
             </tr>
+      
             @endforeach
             <!-- Add more rows as needed -->
         </tbody>

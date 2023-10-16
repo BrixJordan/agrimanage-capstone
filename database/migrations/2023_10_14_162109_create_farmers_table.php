@@ -15,15 +15,12 @@ class CreateFarmersTable extends Migration
     {
         Schema::create('farmers', function (Blueprint $table) {
             $table->id();
-            
             $table->string('captured_image')->nullable();
-            $table->string('surname');
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('extension_name')->nullable();
             $table->enum('sex', ['Male', 'Female', 'Other'])->nullable();
-            $table->string('email')->nullable();
-            $table->string('password')->nullable();
+            $table->string('email_add')->nullable();
             $table->string('house_number')->nullable();
             $table->string('street')->nullable();
             $table->string('barangay')->nullable();

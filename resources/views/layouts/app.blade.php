@@ -117,12 +117,11 @@
             <li><a href="{{ route('admin.announcement') }}"><i class="fas fa-newspaper"></i> News and Update</a></li>
             <li><a href="{{route('admin.event')}}"><i class="fas fa-calendar"></i>Events</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.stock') }}"><i class="fas fa-chart-line"></i> Supply Management</a></li>
-            <li><a href="{{ route('admin.user') }}"><i class="fas fa-users"></i> Users Accounts</a></li>
             <li><a href="{{ route('admin.farmer') }}"><i class="fas fa-users"></i>RSBSA Enrollment form</a></li>
-            <li><a href="{{ route('admin.notification') }}"><i class="fas fa-bell"></i> Notifications</a></li>
+            <li><a href="{{ route('admin.user') }}"><i class="fas fa-users"></i> Users Accounts</a></li>
             <li><a href="{{ route('admin.transaction') }}"><i class="fas fa-tractor"></i> Farmers Transaction</a></li>
-            <li><a href="{{ route('admin.profile') }}"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a href="{{ route('admin.setting') }}"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="{{ route('admin.notification') }}"><i class="fas fa-bell"></i> Notifications</a></li>
+            
             <li class="nav-item logout" style="display: flex; align-items: center;">
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
         @csrf

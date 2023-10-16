@@ -25,8 +25,10 @@
             Record supply
         </button>
         <button type="button" class="btn btn-success mb-3" >
-            <a href="{{route('farmer.list')}}">Farmers List</a>
+            <a href="{{route('farmer.list')}}">Distribute Supply</a>
         </button>
+
+        <button class="btn btn-success mb-3" ><a href="{{ route('vouchers.history') }}">Voucher History</a></button>
     </div>
     <div class="col-md-6">
         <form action="" method="GET" class="form-inline">
@@ -51,6 +53,7 @@
             <th>Quantity</th>
             <th>Unit</th>
             <th>Description</th>
+            <th>Classification</th>
             <th>Allocation</th>
             <th>Balance</th>
             <th>Requesting Officer</th>
@@ -67,6 +70,7 @@
             <td>{{$stock->quantity}}</td>
             <td>{{$stock->unit}}</td>
             <td>{{$stock->description}}</td>
+            <td>{{$stock->classification}}</td>
             <td>{{$stock->allocation}}</td>
             <td>{{$stock->balance}}</td>
             <td>{{$stock->requesting_officer}}</td>
@@ -154,6 +158,17 @@
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
                 </div>
+
+                <div class="form-group">
+        <label for="classification">Classification</label>
+        <select name="classification" id="classification" class="form-control">
+            <option value="hybrid">Hybrid</option>
+            <option value="inbred">Inbred</option>
+        </select>
+        @error('description')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+    </div>
 
                 <div class="form-group">
                     <label for="for allocation" >Allocation </label>

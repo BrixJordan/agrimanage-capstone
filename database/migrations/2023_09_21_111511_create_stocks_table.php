@@ -21,6 +21,7 @@ class CreateStocksTable extends Migration
             $table->string('quantity');
             $table->string('unit');
             $table->text('description');
+            $table->enum('classification', ['hybrid', 'inbred'])->default('inbred');
             $table->string('allocation');
             $table->string('balance');
             $table->string('lot_number');
