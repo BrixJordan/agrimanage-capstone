@@ -137,7 +137,7 @@
 
                 <div class="form-group">
                     <label for="for quantity" >Quantity </label>
-                    <input type="text" name="quantity" id="" class="form-control">
+                    <input type="number" name="quantity" id="" class="form-control">
                     @error('quantity')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -211,7 +211,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="for recieved_by" >Recieved by </label>
+                    <label for="for received_by" >Received by </label>
                     <input type="text" name="received_by" id="" class="form-control">
                     @error('received_by')
                     <span class="invalid-feedback">{{ $message }}</span>

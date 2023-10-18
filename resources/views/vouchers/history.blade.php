@@ -18,6 +18,7 @@
             <tr>
                 <th>Voucher ID</th>
                 <th>Farmer</th>
+                <th>Barangay</th>
                 <th>Intervention</th>
                 <th>Voucher Code</th>
                 <th>Date Generated</th>
@@ -28,6 +29,7 @@
             <tr>
                 <td>{{ $voucher->id }}</td>
                 <td>{{ $voucher->farmer->first_name ?? 'N/A' }}</td>
+                 <td>{{ $voucher->farmer->barangay }}</td>
                 <td>{{ $voucher->stock->description ?? 'N/A' }}</td>
                 <td>{{ $voucher->code }}</td>
                 <td>{{ $voucher->date_generated }}</td>

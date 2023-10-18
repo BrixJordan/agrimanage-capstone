@@ -19,11 +19,12 @@ class CreateVouchersTable extends Migration
             $table->unsignedBigInteger('stock_id');
             $table->date('date_generated');
             $table->string('code');
-            $table->bigInteger('received_stock')->default(0);
+            $table->decimal('received_stock', 8, 2)->default(0.00);
             $table->timestamps();
 
             $table->foreign('farmer_id')->references('id')->on('farmers')->onDelete('cascade');
             $table->foreign('stock_id')->references('id')->on('stocks')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

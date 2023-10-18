@@ -56,13 +56,17 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-md-9">
-                            <p><strong>Recipient Name:</strong> {{ $voucher->farmer->first_name ?? 'N/A' }}</p>
-                            <p><strong>Address:</strong> {{ $voucher->address }}</p>
-                            <p><strong>Intervention:</strong> {{  $voucher->stock->description ?? 'N/A' }}</p>
-                            <p><strong>Date Generated:</strong> {{ $voucher->date_generated }}</p>
-                            <p><strong>Code:</strong> {{ $voucher->code  }}</p>
-                            <p><strong>Received Stock:</strong> {{ $voucher->received_stock ?? 'N/A' }}</p>
-                            <p><strong>Issued by:</strong>Department Of Agriculture</p>
+                        <p><strong>Recipient Name:</strong> {{ $voucher->farmer->first_name ?? 'N/A' }} </p>
+
+<p><strong>Address:</strong> {{ $voucher->farmer->barangay ?? 'N/A' }}</p>
+<p><strong>Intervention:</strong> {{ $voucher->stock->description ?? 'N/A' }}  {{ $voucher->stock->classification ?? 'N/A' }}</p>
+<p><strong>Date Generated:</strong> {{ $voucher->date_generated }}</p>
+<p><strong>Code:</strong> {{ $voucher->code }}</p>
+<p><strong>Received Stock:</strong> {{ $voucher->received_stock ?? 'N/A' }} <b>bags </b></p>
+<p><strong>Issued by:</strong> Department Of Agriculture</p>
+
+
+
                            
                         </div>
                     </div>
